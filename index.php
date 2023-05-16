@@ -61,14 +61,30 @@
 <body>
   <div class="wrapper container d-flex flex-column justify-content-center align-items-center">
     <header class="text-center pb-4">
-      <h1 class="my-4">PHP Hotel</h1>
+      <h1 class="my-4 text-primary">PHP Hotel</h1>
 
-      <?php
-      foreach ($hotels as $hotel) { echo "<h2>{$hotel['name']}</h2>" ; echo "<p>{$hotel['description']}</p>" ;
-        echo "<p>Parcheggio: " . ($hotel['parking'] ? 'Sì' : 'No' ) . "</p>" ; echo "<p>Voto: {$hotel['vote']}</p>" ;
-        echo "<p>Distanza dal centro: {$hotel['distance_to_center']} km</p>" ; };
-         
-      ?>
+      <div class="table-responsive">
+        <table class="table border-2">
+          <thead>
+            <tr class="text-white bg-primary">
+              <th>Nome Hotel</th>
+              <th>Descrizione</th>
+              <th>Parcheggio</th>
+              <th>Voto</th>
+              <th>Distanza dal centro</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($hotels as  $hotel) { ?> <tr>
+              <td><?php echo $hotel['name']; ?></td>
+              <td><?php echo $hotel['description']; ?></td>
+              <td><?php echo ($hotel['parking']) ? 'Yes' : 'No'; ?></td>
+              <td><?php echo $hotel['vote']; ?></td>
+              <td><?php echo $hotel['distance_to_center']; ?> Km</td>
+            </tr> <?php } ?>
+          </tbody>
+        </table>
+      </div>
 
     </header>
     <main>
