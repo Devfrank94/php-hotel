@@ -40,6 +40,10 @@
 
     ];
 
+    // echo "<pre>";
+    // var_dump($hotels);
+    // echo "</pre>";
+
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +61,14 @@
 <body>
   <div class="wrapper container d-flex flex-column justify-content-center align-items-center">
     <header class="text-center pb-4">
-      <h1>PHP Hotel</h1>
+      <h1 class="my-4">PHP Hotel</h1>
+
+      <?php
+      foreach ($hotels as $hotel) { echo "<h2>{$hotel['name']}</h2>" ; echo "<p>{$hotel['description']}</p>" ;
+        echo "<p>Parcheggio: " . ($hotel['parking'] ? 'Sì' : 'No' ) . "</p>" ; echo "<p>Voto: {$hotel['vote']}</p>" ;
+        echo "<p>Distanza dal centro: {$hotel['distance_to_center']} km</p>" ; };
+         
+      ?>
 
     </header>
     <main>
